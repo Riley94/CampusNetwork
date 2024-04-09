@@ -77,7 +77,8 @@ vector<string> dijkstra(const CampusGraph& g, const string& start, const string&
 
 int main()
 {
-    string filePath = "./.env"; // Adjust path as needed
+    string apiKey;
+    string filePath = "../.env"; // Adjust path as needed
     auto envMap = loadEnv(filePath);
 
     // Example usage: Print all loaded environment variables
