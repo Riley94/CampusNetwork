@@ -8,18 +8,18 @@ using json = nlohmann::json;
 using namespace std;
 
 // Add a location to the graph
-void CampusGraph::addLocation(const std::string& name, const std::string& coordinates) {
+void CampusGraph::addLocation(const string& name, const string& coordinates) {
     Node node = {name, coordinates};
     nodes[name] = node;
 }
 
 // Add a weighted edge between two locations
-void CampusGraph::addPath(const std::string& from, const std::string& to, int distance) {
+void CampusGraph::addPath(const string& from, const string& to, int distance) {
     adj[from].push_back(std::make_pair(to, distance));
 }
 
 // Populate paths between all locations using the getDistance function
-void CampusGraph::populatePaths(const std::string& apiKey) {
+void CampusGraph::populatePaths(const string& apiKey) {
     for (auto& source : nodes) {
         for (auto& destination : nodes) {
             if (source.first != destination.first) { // Avoid self-loops
@@ -37,7 +37,7 @@ size_t writeCallBack(void *contents, size_t size, size_t nmemb, string *s) {
     size_t newLength = size * nmemb;
     try {
         s->append((char*)contents, newLength);
-    } catch(std::bad_alloc &e) {
+    } catch(bad_alloc &e) {
         // Handle memory problem
         return 0;
     }
@@ -67,14 +67,14 @@ void CampusGraph::getDirections(const string& origin, const string& destination,
     }
 }
 
-int CampusGraph::getDistance(const std::string& origin, const std::string& destination, const std::string& apiKey) {
+int CampusGraph::getDistance(const string& origin, const string& destination, const string& apiKey) {
     CURL *curl;
     CURLcode res;
-    std::string readBuffer;
+    string readBuffer;
 
     curl = curl_easy_init();
     if(curl) {
-        std::string url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&key=" + apiKey;
+        string url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&key=" + apiKey;
 
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallBack);
@@ -84,7 +84,7 @@ int CampusGraph::getDistance(const std::string& origin, const std::string& desti
         curl_easy_cleanup(curl);
 
         if(res != CURLE_OK) {
-            std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << std::endl;
+            cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << std::endl;
             return -1; // Indicate failure
         } else {
             auto jsonResponse = json::parse(readBuffer);

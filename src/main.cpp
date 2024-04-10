@@ -9,7 +9,10 @@
 #include <fstream>
 #include <sstream>
 
+#include "json.hpp"
 #include "Graph.h"
+
+using json = nlohmann::json;
 
 using namespace std;
 
@@ -81,26 +84,29 @@ int main()
     string filePath = "../.env"; // Adjust path as needed
     auto envMap = loadEnv(filePath);
 
-    // Example usage: Print all loaded environment variables
-    for (const auto& pair : envMap) {
-        cout << pair.first << "=" << pair.second << endl;
+    // Path to your JSON file
+    string path = "scripts/building_to_latlong.json";
+
+    // Open the file stream
+    ifstream inputFile(path);
+
+    // Parse the file stream into a JSON object
+    json j;
+    inputFile >> j;
+
+    CampusGraph graph;
+
+    // graph.addLocation("ROYAL HALL", "39.0336435, -94.5769808");
+    for (const auto& item : j.items()) {
+        graph.addLocation(item.key(), item.value());
     }
 
-    // Example: Access a specific variable
-    if (envMap.find("API_KEY") != envMap.end()) {
-        cout << "API_KEY=" << envMap["API_KEY"] << endl;
-    }
+    graph.populatePaths(envMap["API_KEY"]);
 
     string origin = "40.6655101,-73.89188969999998"; // Example coordinates
     string destination = "40.6905615,-73.9976592"; // Example coordinates
 
-    // CampusGraph graph;
-    // graph.addLocation("Brooklyn College", "40.6655101,-73.89188969999998");
-    // graph.addLocation("Barclays Center", "40.6826,-73.9754");
-    // graph.addLocation("Brooklyn Museum", "40.6712,-73.9632");
-
-    CampusGraph graph;
-
+    /*
     graph.getDirections(origin, destination, apiKey);
 
     int distance = graph.getDistance(origin, destination, apiKey);
@@ -109,7 +115,7 @@ int main()
         cout << "Distance: " << distance << " meters" << endl;
     } else {
         cout << "Failed to retrieve distance." << endl;
-    }
+    } */
 
     // Parse the JSON response to extract the distance
     // Add the distance as an edge weight in your graph
@@ -119,8 +125,6 @@ int main()
     cin >> start;
     cout << "Enter end location: ";
     cin >> end;
-
-    Graph graph;
 
     // Inside main, after getting user input and filling the graph
     vector<string> path = dijkstra(graph, start, end);

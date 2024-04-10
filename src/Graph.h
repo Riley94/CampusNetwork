@@ -4,39 +4,38 @@
 #include <string>
 // Include other headers as necessary
 
+using namespace std;
+
 class CampusGraph {
 private:
     struct Node {
-        std::string name;
-        std::string coordinates; // Latitude and longitude
+        string name;
+        string coordinates; // Latitude and longitude
     };
 
-    std::unordered_map<std::string, Node> nodes; // Keyed by location name
-    std::unordered_map<std::string, std::vector<std::pair<std::string, int>>> adj; // Adjacency list
+    unordered_map<string, Node> nodes; // Keyed by location name
+    unordered_map<string, vector<pair<string, int>>> adj; // Adjacency list
 
 public:
-    CampusGraph();
-    ~CampusGraph();
+    void addLocation(const string& name, const string& coordinates);
+    void addPath(const string& from, const string& to, int distance);
+    void populatePaths(const string& apiKey);
+    void getDirections(const string& origin, const string& destination, const string& apiKey);
+    int getDistance(const string& origin, const string& destination, const string& apiKey);
 
-    void addLocation(const std::string& name, const std::string& coordinates);
-    void addPath(const std::string& from, const std::string& to, int distance);
-    void populatePaths(const std::string& apiKey);
-    void getDirections(const std::string& origin, const std::string& destination, const std::string& apiKey);
-    int getDistance(const std::string& origin, const std::string& destination, const std::string& apiKey);
-
-    void setAdj(const std::unordered_map<std::string, std::vector<std::pair<std::string, int>>>& adj) {
+    void setAdj(const unordered_map<string, vector<pair<string, int>>>& adj) {
         this->adj = adj;
     }
 
-    void setNodes(const std::unordered_map<std::string, Node>& nodes) {
+    void setNodes(const unordered_map<string, Node>& nodes) {
         this->nodes = nodes;
     }
 
-    const std::unordered_map<std::string, Node>& getNodes() const {
+    const unordered_map<string, Node>& getNodes() const {
         return nodes;
     }
 
-    const std::unordered_map<std::string, std::vector<std::pair<std::string, int>>>& getAdj() const {
+    const unordered_map<string, vector<pair<string, int>>>& getAdj() const {
         return adj;
     }
 
