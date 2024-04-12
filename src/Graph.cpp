@@ -16,6 +16,7 @@ void CampusGraph::addLocation(const string& name, const string& coordinates) {
 // Add a weighted edge between two locations
 void CampusGraph::addPath(const string& from, const string& to, int distance) {
     adj[from].push_back(std::make_pair(to, distance));
+    adj[to].push_back(std::make_pair(from, distance)); // add reverse path
 }
 
 // Populate paths between all locations using the getDistance function
@@ -31,6 +32,25 @@ void CampusGraph::populatePaths(const string& apiKey) {
         }
     }
 }
+
+void CampusGraph::loadAndPopulatePaths(const string& apiKey) {
+    std::vector<std::pair<string, string>> connections = {
+        {"Admin Center", "Oak Residence Hall"},
+        {"Admin Center", "Oak Residence Hall"},
+        {"Admin Center", "Oak Residence Hall"},
+        {"Admin Center", "Oak Residence Hall"},
+        {"Building B", "Building C"},
+        // Add more predefined connections
+    };
+
+    for (const auto& connection : connections) {
+        int distance = getDistance(connection.first, connection.second, apiKey);
+        if (distance != -1) { // valid distance
+            addPath(connection.first, connection.second, distance);
+        }
+    }
+}
+
 
 // Callback function writes data to a std::string, and always returns size * nmemb
 size_t writeCallBack(void *contents, size_t size, size_t nmemb, string *s) {

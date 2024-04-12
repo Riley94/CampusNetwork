@@ -1,0 +1,248 @@
+#map-container {
+    position: relative;
+    cursor: crosshair;
+}
+.start-location {
+    border: 2px solid green;
+}
+.destination-location {
+    border: 2px solid blue;
+}
+.clickable-area {
+    cursor: pointer;
+    position: absolute;
+    top: var(--y-percent); /* Y coordinate in percentage */
+    left: var(--x-percent); /* X coordinate in percentage */
+    width: var(--area-width-percent);
+    height: var(--area-height-percent);
+}
+/* Example area for one building */
+#admincenter {
+    --y-percent: 55.76%;
+    --x-percent: 22.58%;
+    --area-width-percent: 3%;
+    --area-height-percent: 7.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#africanamericanhistandculturehouse {
+    --y-percent: 82.22%;
+    --x-percent: 74.21%;
+    --area-width-percent: 1.5%;
+    --area-height-percent: 1.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#atterburysuccesscenter {
+    --y-percent: 38.69%;
+    --x-percent: 49.79%;
+    --area-width-percent: 10%;
+    --area-height-percent: 3.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#familydevelopmentcenter {
+    --y-percent: 65.29%;
+    --x-percent: 83.19%;
+    --area-width-percent: 3.5%;
+    --area-height-percent: 2.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#blochexecutivehall {
+    --y-percent: 61.55%;
+    --x-percent: 31.72%;
+    --area-width-percent: 4%;
+    --area-height-percent: 3.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#blochheritagehall {
+    --y-percent: 65.58%;
+    --x-percent: 28.36%;
+    --area-width-percent: 6%;
+    --area-height-percent: 4%;
+    background: rgba(0, 0, 0, 0);
+}
+#brookeside51 {
+    --y-percent: 54.95%;
+    --x-percent: 10.61%;
+    --area-width-percent: 8%;
+    --area-height-percent: 10.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#cherryhall {
+    --y-percent: 48.93%;
+    --x-percent: 30.09%;
+    --area-width-percent: 5%;
+    --area-height-percent: 4%;
+    background: rgba(0, 0, 0, 0);
+}
+#cockefairhall {
+    --y-percent: 64.30%;
+    --x-percent: 74.79%;
+    --area-width-percent: 2%;
+    --area-height-percent: 4%;
+    background: rgba(0, 0, 0, 0);
+}
+#debatehouse {
+    --y-percent: 88.15%;
+    --x-percent: 56.04%;
+    --area-width-percent: 1%;
+    --area-height-percent: 1%;
+    background: rgba(0, 0, 0, 0);
+}
+#psychologybuilding {
+    --y-percent: 76.20%;
+    --x-percent: 47.22%;
+    --area-width-percent: 5%;
+    --area-height-percent: 3%;
+    background: rgba(0, 0, 0, 0);
+}
+#fineartsbuilding {
+    --y-percent: 43.05%;
+    --x-percent: 57.93%;
+    --area-width-percent: 1.5%;
+    --area-height-percent: 4%;
+    background: rgba(0, 0, 0, 0);
+}
+#flarsheimhall {
+    --y-percent: 59.41%;
+    --x-percent: 61.87%;
+    --area-width-percent: 7%;
+    --area-height-percent: 3%;
+    background: rgba(0, 0, 0, 0);
+}
+#generalservicesbldg {
+    --y-percent: 54.29%;
+    --x-percent: 82.14%;
+    --area-width-percent: 3%;
+    --area-height-percent: 4.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#granthall {
+    --y-percent: 74.02%;
+    --x-percent: 58.98%;
+    --area-width-percent: 3%;
+    --area-height-percent: 6%;
+    background: rgba(0, 0, 0, 0);
+}
+#haaghall {
+    --y-percent: 64.15%;
+    --x-percent: 65.23%;
+    --area-width-percent: 3.25%;
+    --area-height-percent: 3.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#johnsonresidencehall {
+    --y-percent: 32.05%;
+    --x-percent: 10.82%;
+    --area-width-percent: 8.5%;
+    --area-height-percent: 2.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#katzhall {
+    --y-percent: 41.77%;
+    --x-percent: 75.00%;
+    --area-width-percent: 3.5%;
+    --area-height-percent: 1.75%;
+    background: rgba(0, 0, 0, 0);
+}
+#lawbldg {
+    --y-percent: 70.03%;
+    --x-percent: 22.36%;
+    --area-width-percent: 8.5%;
+    --area-height-percent: 7%;
+    background: rgba(0, 0, 0, 0);
+}
+#manheimhall {
+    --y-percent: 66.05%;
+    --x-percent: 57.46%;
+    --area-width-percent: 3%;
+    --area-height-percent: 1.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#millernicholslibrary {
+    --y-percent: 47.46%;
+    --x-percent: 58.40%;
+    --area-width-percent: 10%;
+    --area-height-percent: 5%;
+    background: rgba(0, 0, 0, 0);
+}
+#newcombhall {
+    --y-percent: 62.68%;
+    --x-percent: 55.62%;
+    --area-width-percent: 2%;
+    --area-height-percent: 2%;
+    background: rgba(0, 0, 0, 0);
+}
+#oakresidencehall {
+    --y-percent: 47.51%;
+    --x-percent: 23.06%;
+    --area-width-percent: 6%;
+    --area-height-percent: 5%;
+    background: rgba(0, 0, 0, 0);
+}
+#olsenperformingartscenter {
+    --y-percent: 31.20%;
+    --x-percent: 40.76%;
+    --area-width-percent: 5.5%;
+    --area-height-percent: 5.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#plasterfreeenterprise {
+    --y-percent: 54.53%;
+    --x-percent: 63.55%;
+    --area-width-percent: 6%;
+    --area-height-percent: 3%;
+    background: rgba(0, 0, 0, 0);
+}
+#royallhall {
+    --y-percent: 65.10%;
+    --x-percent: 61.13%;
+    --area-width-percent: 3.5%;
+    --area-height-percent: 3%;
+    background: rgba(0, 0, 0, 0);
+}
+#spencerhall {
+    --y-percent: 41.92%;
+    --x-percent: 79.15%;
+    --area-width-percent: 2%;
+    --area-height-percent: 10%;
+    background: rgba(0, 0, 0, 0);
+}
+#scofieldhall {
+    --y-percent: 59.55%;
+    --x-percent: 57.30%;
+    --area-width-percent: 3.5%;
+    --area-height-percent: 2%;
+    background: rgba(0, 0, 0, 0);
+}
+#studentunion {
+    --y-percent: 55.52%;
+    --x-percent: 30.04%;
+    --area-width-percent: 6.5%;
+    --area-height-percent: 3.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#swinneycenter {
+    --y-percent: 43.01%;
+    --x-percent: 45.96%;
+    --area-width-percent: 5.5%;
+    --area-height-percent: 9.5%;
+    background: rgba(0, 0, 0, 0);
+}
+#toysandminiaturesmuseum {
+    --y-percent: 85.96%;
+    --x-percent: 24.74%;
+    --area-width-percent: 4%;
+    --area-height-percent: 4%;
+    background: rgba(0, 0, 0, 0);
+}
+#universityhouse {
+    --y-percent: 55.00%;
+    --x-percent: 77.52%;
+    --area-width-percent: 2%;
+    --area-height-percent: 1.5%;
+    background: rgba(0, 0, 0, 0);
+}
+
+img {
+    width: 100%;
+    height: auto;
+}

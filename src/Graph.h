@@ -21,6 +21,7 @@ public:
     void addPath(const string& from, const string& to, int distance);
     void populatePaths(const string& apiKey);
     void getDirections(const string& origin, const string& destination, const string& apiKey);
+    void loadAndPopulatePaths(const string& apiKey);
     int getDistance(const string& origin, const string& destination, const string& apiKey);
 
     void setAdj(const unordered_map<string, vector<pair<string, int>>>& adj) {
