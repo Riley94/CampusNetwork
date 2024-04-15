@@ -42,7 +42,12 @@
         <div id="toysandminiaturesmuseum" class="clickable-area"></div>
         <div id="universityhouse" class="clickable-area"></div>
         <div id="clickable-area" class="clickable-area" style="--x-percent: 0%; --y-percent: 0%;"></div>
-        <button id="submitPath">Submit Path</button>
+        <div id="pathDetails" style="display:none;">
+            <h3>Route Information</h3>
+            <p id="routePath"></p>
+            <p id="routeDistance"></p>
+        </div>
+        <button id="submitPath">Submit</button>
     </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

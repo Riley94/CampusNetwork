@@ -16,7 +16,6 @@
     width: var(--area-width-percent);
     height: var(--area-height-percent);
 }
-/* Example area for one building */
 #admincenter {
     --y-percent: 55.76%;
     --x-percent: 22.58%;
@@ -241,8 +240,15 @@
     --area-height-percent: 1.5%;
     background: rgba(0, 0, 0, 0);
 }
-
 img {
     width: 100%;
     height: auto;
+}
+#pathDetails {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ccc;
+    display: none;
 }
