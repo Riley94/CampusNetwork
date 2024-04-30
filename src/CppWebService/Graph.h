@@ -24,6 +24,7 @@ public:
     std::pair<std::vector<std::pair<std::string, std::string>>, std::vector<std::tuple<std::string, std::string, double>>> getDirections(const Node& origin, const Node& destination, const string& apiKey);
     void loadGraph(const string& filePath);
     void saveGraph(const string& filePath) const;
+    void saveGraphToDot(const string& filename) const;
 
     void setAdj(const unordered_map<string, vector<pair<string, int>>>& adj) {
         this->adj = adj;

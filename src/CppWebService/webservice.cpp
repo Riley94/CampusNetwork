@@ -176,6 +176,7 @@ CampusGraph initializeGraph()
         } else {
             std::cout << "Attempting to save graph..." << std::endl;
             graph.saveGraph("graph.txt");
+            graph.saveGraphToDot("graph.dot");
         }
     } else {
         // Load the graph from a file

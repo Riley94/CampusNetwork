@@ -174,3 +174,25 @@ void CampusGraph::loadGraph(const std::string& filename) {
 
     file.close();
 }
+
+void CampusGraph::saveGraphToDot(const string& filename) const {
+    ofstream file(filename);
+    if (!file.is_open()) {
+        cerr << "Failed to open file for writing: " << filename << endl;
+        return;
+    }
+
+    file << "digraph CampusGraph {\n";
+    for (const auto& node : nodes) {
+        // For each node, output it
+        file << "\"" << node.first << "\" [label=\"" << node.second.name << "\"];\n";
+    }
+    for (const auto& pair : adj) {
+        for (const auto& edge : pair.second) {
+            // For each edge, output it
+            file << "\"" << pair.first << "\" -> \"" << edge.first << "\" [label=\"" << edge.second << "\"];\n";
+        }
+    }
+    file << "}\n";
+    file.close();
+}
